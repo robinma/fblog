@@ -1,0 +1,22 @@
+html,body{height: 100%;font-family:Microsoft YaHei,Î¢ÈíÑÅºÚ,"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3",Tahoma,ËÎÌå,Simsun;}
+.overLtxt{overflow: hidden;text-indent: -500em;}
+.containor{height: 100%; background: #fff url(../images/1077486210866474043.jpg) no-repeat center; background-size: cover;min-height: 100%;}
+
+.header{height: 60px;position: fixed;top:0;left:0;width:100%; background: #333; box-shadow: 0 2px 3px rgba(0,0,0,.1);}
+.header_bar{height: 4px; background: #229a45;}
+.header_cont{height: 56px; background: #333;overflow: hidden;zoom:1;}
+.header_nav{float: left;margin:14px 0 14px 30px;}
+.header_nav .it{float: left;height: 25px;}
+.header_nav .link{padding:0 15px;line-height: 25px;font-size: 14px;color:#999999;display: inline-block;height: 25px; text-shadow: 0 1px 0 #000;}
+.header_nav .link:hover{text-decoration: none; color:#f3f3f3;box-shadow: 0 1px 0px rgba(255,255,255,.05) inset; border-radius: 5px;}
+
+.footer{position: fixed;bottom:0;width: 100%;zoom: 100px;}
+.footer_info{height: 48px; background: #333333;border-top:1px solid #000;position: relative;z-index: 102px;}
+.footer .info{line-height: 48px;color: #ccc;}
+.nav-link{position: absolute;right: 15px;height: 0px;bottom:48px;z-index: 101px;}
+.nav-link .ul{}
+.nav-link .it{float: left;padding-right: 15px;position: relative;height: 50px;width: 60px;}
+.nav-link .it .link{display: inline-block;background: url(../images/main_iocn.png) no-repeat;height: 50px;width: 60px;position: absolute;bottom: 25px;}
+.nav-link .it .link:hover{bottom: 48px;}
+.nav-link .it .git{background-position:0px -5px; }
+.nav-link .it .sina{background-position:-75px -5px; }
