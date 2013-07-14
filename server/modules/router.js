@@ -5,13 +5,13 @@ var fs=require('fs');
 var path=require('path');
 
 var mime=require('../config/mime').types;
+var config=require('../config/config');
 
 function route(handle,pathname,response){
 	console.log("About to route a request for "+pathname);
 	if(typeof handle[pathname] === 'function'){
 		handle[pathname]();
 	}else{
-		console.log('==========no request handle found for '+pathname);
 		staticFiles(pathname,response);
 	}
 }
@@ -33,6 +33,13 @@ var staticFiles=function(pathname,response){
 					response.end(err);
 				}else{
 					response.writeHead(200,{'Content-Type':mime[ext]});
+					if(ext.match(config.Expires.fileMatch)){
+						var expires=new Date();
+						console.log(expires.getTime,'test this console')
+						expires.setTime(expires.getTime()+config.Expires.maxAge*1000);
+						response.setHeader('Expres',expires.toUTCString());
+						response.setHeader('Cache-Control','max-age='+config.Expires.maxAge);
+					}
 					response.write(data,'binary');
 					response.end();
 				}
