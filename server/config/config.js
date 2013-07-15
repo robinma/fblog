@@ -3,5 +3,5 @@
  */
 exports.Expires={
 	fileMatch:/^(gif|png|jpg|js|css)$/ig,
-	maxAge:6000
+	maxAge:604800
 }
