@@ -54,7 +54,6 @@ var staticFiles = function(pathname, request, response) {
 							response.writeHead(200, {
 								'Content-Type' : mime[ext]
 							});
-
 							response.write(data, 'binary');
 							response.end();
 						}
