@@ -12,4 +12,3 @@ handle['/start']=requestHandlers.start;
 handle['/upload']=requestHandlers.upload;
 
 server.start(route.route,handle);
-/*test version 0.13.7.05*/

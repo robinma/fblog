@@ -10,7 +10,7 @@ var start=function(route,handle){
 		route(handle,pathname,request,response);
 	}
 	http.createServer(onRequest).listen(8080);
-	console.log('Server has started');
+	console.log('======= Server has started');
 }
 
 exports.start=start;

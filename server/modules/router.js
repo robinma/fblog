@@ -3,7 +3,6 @@
  */
 var fs = require('fs');
 var path = require('path');
-var zlib=require('zlib');
 
 var mime = require('../config/mime').types;
 var config = require('../config/config');
@@ -22,6 +21,7 @@ var staticFiles = function(pathname, request, response) {
 	var ext = path.extname(realPath);
 	ext = ext ? ext.slice(1) : 'text/plain';
 	fs.exists(realPath, function(exists) {
+		console.log('at realPath:',realPath);
 		if (!exists) {
 			response.writeHead(404, {
 				'Content-Type' : 'text/plain'
@@ -36,11 +36,10 @@ var staticFiles = function(pathname, request, response) {
 				console.log('Last-Modified', lastModified);
 				if (ext.match(config.Expires.fileMatch)) {
 					var expires = new Date();
-					expires.setTime(expires.getTime() + config.Expires.maxAge);
-					response.setHeader('Expres', expires.toUTCString());
-					response.setHeader('Cache-Control', 'max-age=' + config.Expires.maxAge);
+					expires.setTime(expires.getTime() + config.Expires.maxAge*1000);
+					response.setHeader('Expires', expires.toUTCString());
+					response.setHeader('Cache-Control', 'private,max-age=' + config.Expires.maxAge);
 				}
-				console.log(request.headers);
 				if (request.headers[ifModifiedSince] && lastModified == request.headers[ifModifiedSince]) {
 					response.writeHead(304, "Not Modified.");
 					response.end();
