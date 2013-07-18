@@ -21,7 +21,7 @@ var staticFiles = function(pathname, request, response) {
 	var ext = path.extname(realPath);
 	ext = ext ? ext.slice(1) : 'text/plain';
 	fs.exists(realPath, function(exists) {
-		console.log('at realPath:',realPath);
+		console.log('at realPath:', realPath);
 		if (!exists) {
 			response.writeHead(404, {
 				'Content-Type' : 'text/plain'
@@ -36,7 +36,7 @@ var staticFiles = function(pathname, request, response) {
 				console.log('Last-Modified', lastModified);
 				if (ext.match(config.Expires.fileMatch)) {
 					var expires = new Date();
-					expires.setTime(expires.getTime() + config.Expires.maxAge*1000);
+					expires.setTime(expires.getTime() + config.Expires.maxAge * 1000);
 					response.setHeader('Expires', expires.toUTCString());
 					response.setHeader('Cache-Control', 'private,max-age=' + config.Expires.maxAge);
 				}

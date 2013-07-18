@@ -2,9 +2,9 @@
  * @author robin ma
  * 
  */
-var server=require('./modules/server');
-var route=require('./modules/router');
-var requestHandlers=require("./modules/requestHandlers");
+var server=require('./server/modules/server');
+var route=require('./server/modules/router');
+var requestHandlers=require("./server/modules/requestHandlers");
 
 var handle={};
 handle['/']=requestHandlers.start;
