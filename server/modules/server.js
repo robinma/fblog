@@ -6,6 +6,8 @@ var url=require('url');
 
 var start=function(route,handle){
 	function onRequest(request,response){
+		
+		console.log('======',request.url,response.method);
 		var pathname=url.parse(request.url).pathname;
 		route(handle,pathname,request,response);
 	}
