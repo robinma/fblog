@@ -3,6 +3,7 @@
  */
 var route = require('./route');
 var config = require("../config/config");
+var mime = require('../config/mime').types;
 
 var requestHandlers = function(req, res) {
 

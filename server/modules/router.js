@@ -4,20 +4,66 @@
 var fs = require('fs');
 var path = require('path');
 
-var mime = require('../config/mime').types;
-var config = require('../config/config');
+// var config = require('../config/config');
+//
+// function route(handle, pathname, request, response) {
+// console.log("About to route a request for " + pathname);
+// if ( typeof handle[pathname] === 'function') {
+// handle[pathname]();
+// } else {
+// staticFiles(pathname, request, response);
+// }
+// }
 
-function route(handle, pathname, request, response) {
-	console.log("About to route a request for " + pathname);
-	if ( typeof handle[pathname] === 'function') {
-		handle[pathname]();
-	} else {
-		staticFiles(pathname, request, response);
+var parseUrl = require('url').parse;
+
+//根据http请求的method方法来分别保存存route方法
+var routes = {
+	get : [],
+	post : [],
+	head : [],
+	put : [],
+	"delete" : []
+};
+
+//register route rolue
+/*
+ * route.map={
+ * 	method:'get',
+ * url:'',
+ * controller:'search',
+ * action:'init'
+ * }
+ */
+
+exports.map = function(dict) {
+	if (dict && dict.url && dict.controller) {
+		var method = dict.method ? dict.method.toLowerCase() : 'get';
+		route[method].push({
+			u : dict.url,
+			c : dict.controller,
+			a : dict.action || 'init'
+		});
 	}
 }
 
-var staticFiles = function(pathname, request, response) {
-	
-}
+exports.getActionInfo = function(url, method) {
+	var r = {
+		controller : null,
+		action : null,
+		args : null
+	}, method = method ? method.toLowerCase() : 'get',
 
-exports.route = route;
+	//url
+	pathName = parseUrl(url).pathname;
+
+	var m_routes = routes[method];
+
+	for (var i in m_routes) {
+		r.args = m_routes[i].u.exec(pathName);
+		if (r.args) {
+			r.controlls=m_routes[i].c;
+			r.action=m_routes[i],a;
+		}
+	}
+}
