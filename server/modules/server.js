@@ -1,18 +1,23 @@
 /**
  * @author jerry
  */
-var http=require('http');
-var url=require('url');
+var http = require('http'), 
+queryString = require('querystring'), 
+requestHandler = require('./requestHandlers');
 
-var start=function(route,handle){
-	function onRequest(request,response){
-		
-		console.log('======',request.url,response.method);
-		var pathname=url.parse(request.url).pathname;
-		route(handle,pathname,request,response);
+var start = function(port) {
+	
+	port = port || 8080;
+	function onRequest(req, res) {
+		console.log('======', req.url, res.method);
+		req.post = queryString.parse(req.url);
+
+		requestHandler.init(req, res);
 	}
+
+
 	http.createServer(onRequest).listen(8080);
 	console.log('======= Server has started');
 }
 
-exports.start=start;
+exports.start = start;

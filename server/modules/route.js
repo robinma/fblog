@@ -60,10 +60,15 @@ exports.getActionInfo = function(url, method) {
 	var m_routes = routes[method];
 
 	for (var i in m_routes) {
+		//正则匹配
 		r.args = m_routes[i].u.exec(pathName);
+		console.log('-----routes ',m_routes[i],pathName);
 		if (r.args) {
 			r.controlls=m_routes[i].c;
-			r.action=m_routes[i],a;
+			r.action=m_routes[i].a;
+			break;
 		}
 	}
+	//data format {controller:'blog',action:'get',args:['1']}
+	return r;
 }

@@ -7,5 +7,6 @@ exports.Expires={
 }
 
 exports.fPath={
-	controllers:'../../fmvc/controllers'//控制台根目标路径
+	controllers:'../../fmvc/controllers',//控制台根目标路径
+	staticFilesDir:'../../fmvc/static'
 }
