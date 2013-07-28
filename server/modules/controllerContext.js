@@ -1,6 +1,9 @@
 /**
  * @author robin ma
  */
+var path = require('path');
+var config = require("../config/config");
+var juicer=require('../lib/juicer/build/juicer-min');
 
 //controller 上下文
 var controllerContext = function(req, res) {
@@ -13,8 +16,10 @@ var controllerContext = function(req, res) {
 var ccproto=controllerContext.prototype;
 
 ccproto['render']=function(viewpath,cjson){
-	console.log('render me');
+	viewEngine.render(this.req,this.res,viewpath,cjson);
+	
 };
+
 
 var handler404 = function(req, res) {
 	res.writeHead(404, {
@@ -29,4 +34,17 @@ var handler500 = function(req, res, err) {
 	});
 	res.end(err);
 };
+
+var viewEngine={
+	render:function(req,res,viewName,context){
+		var filename= path.join(__dirname, config.fPath.tplFilesDir, viewName);
+		
+		var output=juicer(filename,context);
+		
+		console.log(filename,output,"====");
+	},
+	renderJson:function(res,json){
+		//TODO
+	}
+}
 exports.controllerContext=controllerContext;
