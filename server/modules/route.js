@@ -3,18 +3,6 @@
  */
 var fs = require('fs');
 var path = require('path');
-
-// var config = require('../config/config');
-//
-// function route(handle, pathname, request, response) {
-// console.log("About to route a request for " + pathname);
-// if ( typeof handle[pathname] === 'function') {
-// handle[pathname]();
-// } else {
-// staticFiles(pathname, request, response);
-// }
-// }
-
 var parseUrl = require('url').parse;
 
 //根据http请求的method方法来分别保存存route方法
@@ -39,9 +27,10 @@ var routes = {
 exports.map = function(dict) {
 	if (dict && dict.url && dict.controller) {
 		var method = dict.method ? dict.method.toLowerCase() : 'get';
-		route[method].push({
+		routes[method].push({
 			u : dict.url,
 			c : dict.controller,
+			t : dict.tpl||'',
 			a : dict.action || 'init'
 		});
 	}
@@ -62,10 +51,13 @@ exports.getActionInfo = function(url, method) {
 	for (var i in m_routes) {
 		//正则匹配
 		r.args = m_routes[i].u.exec(pathName);
-		console.log('-----routes ',m_routes[i],pathName);
+		console.log('-----routes ', m_routes[i], pathName);
+		console.log('-----args', m_routes[i].u.exec(pathName));
 		if (r.args) {
-			r.controlls=m_routes[i].c;
-			r.action=m_routes[i].a;
+			r.controller = m_routes[i].c;
+			r.action = m_routes[i].a;
+			r.args.shift();
+			r.tpl = m_routes[i].t;
 			break;
 		}
 	}

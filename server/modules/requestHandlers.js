@@ -6,20 +6,27 @@ var url = require('url');
 var path = require('path');
 var fs = require('fs');
 var route = require('./route');
+var croute = require('../../fmvc/config/route');
 
 var config = require("../config/config");
 var mime = require('../config/mime').types;
+
+var resHandler = require('./response');
+var cct=require('./controllerContext');
 
 var requestHandlers = function(req, res) {
 
 	var actionInfo = route.getActionInfo(req.url, req.method);
 	console.log("+++++", actionInfo);
 	if (actionInfo.action) {
+		console.log('+++++ action info', actionInfo.action);
 		var controller = require(config.fPath.controllers + actionInfo.controller);
 		//./controler/blog
 
 		if (controller[actionInfo.action]) {
-			console.log('=====', actionInfo.action);
+			var ct=new cct.controllerContext(req,res);
+			console.log('actionInfo:',actionInfo.args);
+			controller[actionInfo.action].apply(ct,[actionInfo]);
 		} else {
 			res.writeHead(500, {
 				'Content-Type' : 'text/plain'
@@ -31,7 +38,8 @@ var requestHandlers = function(req, res) {
 		// if route not exec,than it is static Files;
 		staticFileServer(req, res);
 	}
-}
+};
+
 //static server
 
 var staticFileServer = function(request, response) {
@@ -44,7 +52,7 @@ var staticFileServer = function(request, response) {
 
 	// check the file is exist
 	fs.exists(realPath, function(exists) {
-		
+
 		if (!exists) {
 			response.writeHead(404, {
 				'Content-Type' : 'text/plain'
@@ -54,10 +62,10 @@ var staticFileServer = function(request, response) {
 		} else {
 			//check file statue
 			fs.stat(realPath, function(err, stat) {
-				
+
 				var lastModified = stat.mtime.toUTCString();
 				var ifModifiedSince = "If-Modified-Since".toLowerCase();
-				//get client response header ptotype 
+				//get client response header ptotype
 				response.setHeader('Last-Modified', lastModified);
 				console.log('Last-Modified', lastModified);
 				//if the file is appointed type --gif|png|jpg|js|css
@@ -67,7 +75,7 @@ var staticFileServer = function(request, response) {
 					response.setHeader('Expires', expires.toUTCString());
 					response.setHeader('Cache-Control', 'private,max-age=' + config.Expires.maxAge);
 				}
-				//compare the file last modified 
+				//compare the file last modified
 				if (request.headers[ifModifiedSince] && lastModified == request.headers[ifModifiedSince]) {
 					response.writeHead(304, "Not Modified.");
 					response.end();
@@ -94,4 +102,5 @@ var staticFileServer = function(request, response) {
 		}
 	});
 }
-exports.init = requestHandlers; 
+
+exports.init = requestHandlers;
