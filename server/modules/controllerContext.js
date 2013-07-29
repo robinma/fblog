@@ -3,6 +3,7 @@
  */
 var path = require('path');
 var config = require("../config/config");
+var pageTpl=require('./page_readTpl');
 var juicer=require('../lib/juicer/build/juicer-min');
 
 //controller 上下文
@@ -38,10 +39,14 @@ var handler500 = function(req, res, err) {
 var viewEngine={
 	render:function(req,res,viewName,context){
 		var filename= path.join(__dirname, config.fPath.tplFilesDir, viewName);
+		pageTpl.getTpl(filename,getTplCB);
 		
-		var output=juicer(filename,context);
-		
-		console.log(filename,output,"====");
+		//get template string call back function
+		function getTplCB(data){
+			var output=juicer(data,context);
+			res.writeHead(200,{'Content-text':'text/html'});
+			res.end(output);
+		}
 	},
 	renderJson:function(res,json){
 		//TODO

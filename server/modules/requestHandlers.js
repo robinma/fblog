@@ -57,7 +57,7 @@ var staticFileServer = function(request, response) {
 			response.writeHead(404, {
 				'Content-Type' : 'text/plain'
 			});
-			response.write('This request URL ' + realPath + ' was not found on this server.');
+			response.write('This request URL ' + pathname + ' was not found on this server.');
 			response.end();
 		} else {
 			//check file statue

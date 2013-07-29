@@ -5,6 +5,6 @@ console.log('im index.js in controllers');
 
 exports.init=function(){
 	
-	console.log('是我',arguments,this);
+	console.log('是我');
 	this.render('index1.html',{});
 }
