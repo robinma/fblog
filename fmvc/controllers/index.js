@@ -3,8 +3,8 @@
  */
 console.log('im index.js in controllers');
 
-exports.init=function(){
+exports.init=function(param){
 	
 	console.log('是我');
-	this.render('index1.html',{});
+	this.render(param.tpl,{});
 }
