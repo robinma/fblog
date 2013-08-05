@@ -1,0 +1,8 @@
+.wwid{width: 960px;margin: 0 auto;}
+.header{display: block;height: 107px;background:#f6f6f6;border-bottom: 1px solid #dadada;}
+.header_cont{height: 107px; box-shadow: 0 1px #333 rgba(0,0,0,.3);}
+.hb_name{float: left;margin-left: 110px;width:140px;text-align: center;margin-top: 20px;}
+.hb_name .name{font-size:30px; line-height:30px; height:30px;padding:5px 0; display:block; color:#333; border-bottom:1px solid #dddddd;}
+.hb_name .slogan{color:#666;display: block;height: 20px;padding:5px 0;line-height: 20px;border-top: 1px solid #fff;}
+
+.hb_name .slogan b{padding: 0 9px;}
