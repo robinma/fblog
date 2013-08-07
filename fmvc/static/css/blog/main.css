@@ -1,7 +1,7 @@
 .wwid{width: 960px;margin: 0 auto;}
 .bicon{background: url('/images/blog/blog_icon.png') no-repeat;display: block;width:20px; height:20px;}
-
-.header{display: block;height: 107px;background:#f6f6f6;border-bottom: 1px solid #dadada;box-shadow: 0px 1px 3px rgba(0,0,0,.1);}
+.font-f{font-family: Microsoft YaHei,微软雅黑,"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3",Tahoma,宋体,Simsun;}
+.header{display: block;height: 107px;background:#f6f6f6;border-bottom: 1px solid #dadada;box-shadow: 0px 1px 3px rgba(0,0,0,.05);position: relative; z-index: 5;}
 .header_cont{height: 107px;}
 .hb_name{float: left;width:140px;text-align: center;margin-top: 20px;}
 .hb_name .name{font-size:30px; line-height:30px; height:30px;padding:5px 0; display:block; color:#333; border-bottom:1px solid #dddddd;}
@@ -14,3 +14,17 @@
 .sear_btn{display: block;float:left;width: 26px; height:26px; border-left:1px solid #fff;overflow: hidden;text-indent: -99em;position: relative;}
 .bicon_search{position: absolute;top: 3px;left:3px;background-position: 0 0;}
 .hd_search_inp{float: left;margin: 0;padding:0;border:0;width:179px; padding:3px;height:20px;line-height: 20px;outline: none;}
+/*main nav style*/
+.main_nav{height: 40px; border-bottom:1px solid #dadada;background: #f8f8f8;box-shadow: 0 1px 3px rgba(0,0,0,.05);z-index: 4;position: relative;}
+.mainMenu{float:left;overflow: hidden;height:36px;padding-top: 4px;}
+.mainMenu .it{float: left;margin-right: 10px;}
+.mainMenu .li{display: inline-block;height: 36px;line-height: 36px;color:#333;xx}
+.mainMenu .li:hover{text-decoration: none;color: #336699;}
+.mainMenu .txt{padding: 0 20px;font-size: 14px;}
+/*main content*/
+.main_content{margin-top:40px;}
+.main_section{float: left;width:640px;}
+.main_aside{width:280px;float: left;margin-left: 40px;background: #ccc;}
+/*main ascroll images*/
+.main_scrollImg{display: block;height: 200px;}
+.mainsi_img{height: 200px;width:300px;float: left;}
