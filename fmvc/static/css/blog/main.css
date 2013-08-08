@@ -18,7 +18,7 @@
 .main_nav{height: 40px; border-bottom:1px solid #dadada;background: #f8f8f8;box-shadow: 0 1px 3px rgba(0,0,0,.05);z-index: 4;position: relative;}
 .mainMenu{float:left;overflow: hidden;height:36px;padding-top: 4px;}
 .mainMenu .it{float: left;margin-right: 10px;}
-.mainMenu .li{display: inline-block;height: 36px;line-height: 36px;color:#333;xx}
+.mainMenu .li{display: inline-block;height: 36px;line-height: 36px;color:#333;}
 .mainMenu .li:hover{text-decoration: none;color: #336699;}
 .mainMenu .txt{padding: 0 20px;font-size: 14px;}
 /*main content*/
@@ -26,5 +26,20 @@
 .main_section{float: left;width:640px;}
 .main_aside{width:280px;float: left;margin-left: 40px;background: #ccc;}
 /*main ascroll images*/
-.main_scrollImg{display: block;height: 200px;}
+.main_scrollImg{display: block;height: 200px;background: #f6f6f6;margin-bottom: 20px;}
 .mainsi_img{height: 200px;width:300px;float: left;}
+.mainsi_img .warp{display: block;width: 300px; height:200px;}
+.mainsi_content{float: left;width:300px;height: 185px;padding: 15px 20px 0 20px;}
+.mainsi_title{line-height: 24px;display: block;}
+.mainsi_title .tit{font-size: 14px;font-weight: bold;}
+.mainsi_artc{display: block;height: 130px;word-break: break-all;color:#333;}
+.mainsi_artc p{line-height: 22px;}
+.mainsi_artc .tail{color: #666;}
+.mainsi_pagewarp{text-align: right;}
+.mainsi_pagewarp .it{display: inline-block;width:10px; height:10px;background-position: -136px -5px; }
+.mainsi_pagewarp .active{background-position: -121px -5px;}
+/*marin article*/
+.mart_bar{height: 30px;}
+.mart_title{float: left;color: #219a44;height: 30px;line-height: 30px;}
+.mart_it{padding: 15px 0;}
+.mart_it .title{height: 22px;}

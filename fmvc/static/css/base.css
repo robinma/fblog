@@ -17,9 +17,9 @@ legend { color:#000; }
 input, button, textarea, select, optgroup, option { font-family:inherit; font-size:inherit; font-style:inherit; font-weight:inherit; }
 input, button, textarea, select { *font-size:100%;}
 b,em,i,s,u{font-weight: normal;font-size: 12px;font-style: normal;text-decoration: none;}
-a {color:#40addb;text-decoration: none; }
+a {color:#336699;text-decoration: none; }
 a:hover { text-decoration: underline;}
-/*�����Ű�*/
+/*文字排版*/
 .f12 { font-size:12px; }
 .f13 { font-size:13px; }
 .f14 { font-size:14px; }
@@ -33,7 +33,7 @@ a:hover { text-decoration: underline;}
 .lh200 { line-height:200%; }
 .unl { text-decoration:underline; }
 .no_unl { text-decoration:none; }
-/*��λ*/
+/*定位*/
 .tl { text-align:left; }
 .tc { text-align:center; }
 .tr { text-align:right; }
@@ -54,7 +54,7 @@ a:hover { text-decoration: underline;}
 .zoom { zoom:1; }
 .hidden { visibility:hidden; }
 .none { display:none; }
-/*���ȸ߶�*/
+/*长度高度*/
 .w10 { width:10px; }
 .w20 { width:20px; }
 .w30 { width:30px; }
@@ -78,7 +78,7 @@ a:hover { text-decoration: underline;}
 .h100 { width:100px; }
 .h200 { width:200px; }
 .h { height:100% }
-/*�߾�*/
+/*边距*/
 .m10 { margin:10px; }
 .m15 { margin:15px; }
 .m30 { margin:30px; }
