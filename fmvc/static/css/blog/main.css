@@ -40,6 +40,12 @@
 .mainsi_pagewarp .active{background-position: -121px -5px;}
 /*marin article*/
 .mart_bar{height: 30px;}
-.mart_title{float: left;color: #219a44;height: 30px;line-height: 30px;}
+.mart_title{float: left;color: #219a44;height: 30px;line-height: 30px;font-size: 14px;}
 .mart_it{padding: 15px 0;}
-.mart_it .title{height: 22px;}
+.mart_it .title{height: 22px;line-height: 22px;padding: 6px 0; border-bottom:1px solid #e2e2e2;}
+.mart_it .li{font-size: 14px;font-weight: bold;color:#555555;text-shadow: 0 1px 0 #fff,0 1px 3px rgba(0,0,0,.5);}
+.mart_info{overflow: hidden;zoom:1;margin-top: 5px;}
+.mart_field{display: inline-block;height: 20px;line-height: 20px;color: #b2b2b2;margin-right: 10px;}
+.mart_field .bicon{float: left;}
+.bicon_article{background-position: -27px 0; }
+.bicon_view{background-position: -59px 0;}
