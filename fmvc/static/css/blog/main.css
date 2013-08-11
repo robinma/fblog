@@ -24,7 +24,7 @@
 /*main content*/
 .main_content{margin-top:40px;}
 .main_section{float: left;width:640px;}
-.main_aside{width:280px;float: left;margin-left: 40px;background: #ccc;}
+.main_aside{width:280px;float: left;margin-left: 40px;}
 /*main ascroll images*/
 .main_scrollImg{display: block;height: 200px;background: #f6f6f6;margin-bottom: 20px;}
 .mainsi_img{height: 200px;width:300px;float: left;}
@@ -44,8 +44,36 @@
 .mart_it{padding: 15px 0;}
 .mart_it .title{height: 22px;line-height: 22px;padding: 6px 0; border-bottom:1px solid #e2e2e2;}
 .mart_it .li{font-size: 14px;font-weight: bold;color:#555555;text-shadow: 0 1px 0 #fff,0 1px 3px rgba(0,0,0,.5);}
-.mart_info{overflow: hidden;zoom:1;margin-top: 5px;}
+.mart_info{overflow: hidden;zoom:1;margin-top: 5px;margin-bottom: 20px;}
 .mart_field{display: inline-block;height: 20px;line-height: 20px;color: #b2b2b2;margin-right: 10px;}
-.mart_field .bicon{float: left;}
+.mart_field .bicon{float: left;margin-right: 5px;}
 .bicon_article{background-position: -27px 0; }
 .bicon_view{background-position: -59px 0;}
+.bicon_person{background-position: -91px 0;}
+.mart_art_cont{overflow: hidden;zoom:1;}
+.mart_fimgwarp{display: block;height: 144px; border:1px solid #656565;margin-bottom: 10px;}
+.mart_fimg{margin: 3px;height: 138px;background: #CCC;}
+.mart_scont{overflow: hidden;zoom: 1;color:#333;word-break: break-all;}
+.mart_scont p{line-height: 20px;}
+.mart_scont a{color:#519841;}
+.mart_art2 .mart_fimgwarp{height:156px; float: right;width:230px;}
+.mart_art2 .mart_fimg{height:150px;}
+.mart_art2 .mart_scont{width: 400px;}
+/*page warp*/
+.pagewarp{text-align: right;margin-top: 20px;}
+.page_it{display: inline-block;height: 21px; border: 1px solid #219a44;line-height: 23px; font-family: '宋体';margin: 0 3px;padding: 0 6px;color:#219a44;}
+.page_it:hover{background: #d5efda;text-decoration: none;}
+
+.masi_block{margin-bottom: 10px;}
+/*aside part*/
+.cloudMark{height: 260px;background: #CCCCCC;}
+
+.marsi_ariul{overflow: hidden;zoom:1;}
+.marsi_ariul .it{float: left;width:100%;padding: 5px 0;border-bottom: 1px dashed #b3b3b3;}
+.marsi_ariul .tit{line-height: 22px;overflow: hidden;zoom:1;}
+.marsi_ariul .status{line-height: 22px;color: #999;}
+.marsi_ariul .clas{margin-right: 10px;}
+.marsi_ariul .count{float: right;color:#999;}
+.marsi_commul .article{line-height: 20px; color:#666;}
+.marsi_commul .it{border: none;}
+.marsi_conec .it{border:none; padding:0;}
