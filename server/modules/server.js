@@ -16,7 +16,7 @@ var start = function(port) {
 	}
 
 
-	http.createServer(onRequest).listen(8080);
+	http.createServer(onRequest).listen(port);
 	console.log('======= Server has started');
 }
 
