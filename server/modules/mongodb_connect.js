@@ -10,7 +10,12 @@ var db=new mongodb.Db('blog',server,{safe:true});
 db.open(function(err,db){
 	if(!err){
 		console.log('========connect db success=======');
+		var clec=db.collection('blog');
+		
 	}else{
 		console.log('--------connect db fail-------------------')
 	}
+	
 })
+
+
