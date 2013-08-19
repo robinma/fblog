@@ -29,13 +29,28 @@ db.once('open', function() {
 	blogEntity.save();
 	blogEntity.speak();
 	
-	//console.log(blogEntity.find(),'====');
-	//blogEntity.save();
-	blogModel.find(function(err, blog) {
-		if (err)
-			donsole.log('--22---');
-		console.log(blog, '===');
+	//add new record
+	//use entity add one data
+	var krouky=new blogModel({
+		name:'jime',
+		title:'我是一个坏人',
+		id:'2'
 	});
+	krouky.save(findDate);
+	// add new recore
+	//use model
+//	var mblogart={'name':'tom',title:'你是谁,im xiaoqing',id:3};
+	//blogModel.create(mblogart,findDate);
+	
+	
 
 });
 
+var findDate=function(err,data){
+	console.log(err,'=====',data,'=====callback');
+	// blogModel.find(function(err, blog) {
+		// if (err)
+			// donsole.log('--22---');
+		// console.log(blog, '===');
+	// });
+}
