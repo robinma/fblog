@@ -47,7 +47,7 @@ exports.getActionInfo = function(url, method) {
 	pathName = parseUrl(url).pathname;
 
 	var m_routes = routes[method];
-
+		console.log('======rotes collection====',m_routes,'/n/n/n/n');
 	for (var i in m_routes) {
 		//正则匹配
 		r.args = m_routes[i].u.exec(pathName);

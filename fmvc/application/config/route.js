@@ -1,15 +1,22 @@
 /**
  * @author robin ma
  */
-var sroute=require('../../server/modules/route.js');
+var sroute=require('../../../server/modules/route.js');
 
 var setting={
-	//home
-	'index':{
-		url:/\/blog\/?$/i,
-		controller:'index',
+	//welcome
+	'welcome':{
+		url:/\/\/?$/i,
+		controller:'welcome',
 		action:'init',
-		tpl:'index1.html',
+		tpl:'welcome.html',
+	},
+	//home
+	'blog':{
+		url:/\/blog\/?$/i,
+		controller:'home',
+		action:'init',
+		tpl:'blog/home/main.html',
 	},
 	
 	

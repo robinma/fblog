@@ -3,7 +3,7 @@
  */
 var fs = require('fs');
 
-exports.getTpl = function(pathname, callback) {
+exports.getTpl = function(req,res,pathname, callback) {
 	fs.exists(pathname, function(exists) {
 		
 		if (!exists) {

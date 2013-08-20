@@ -6,7 +6,7 @@ var url = require('url');
 var path = require('path');
 var fs = require('fs');
 var route = require('./route');
-var croute = require('../../fmvc/config/route');
+var croute = require('../../fmvc/application/config/route');
 
 var config = require("../config/config");
 var mime = require('../config/mime').types;
@@ -16,15 +16,18 @@ var cct=require('./controllerContext');
 
 var requestHandlers = function(req, res) {
 
+	//get rotu setting infomations
 	var actionInfo = route.getActionInfo(req.url, req.method);
-	console.log("+++++", actionInfo);
+	
 	if (actionInfo.action) {
-		console.log('+++++ action info', actionInfo.action);
+		console.log('+++++ action Entroal', actionInfo.action);
+		
 		var controller = require(config.fPath.controllers + actionInfo.controller);
 		//./controler/blog
 
 		if (controller[actionInfo.action]) {
 			var ct=new cct.controllerContext(req,res);
+			
 			console.log('actionInfo:',actionInfo.args);
 			controller[actionInfo.action].apply(ct,[actionInfo]);
 		} else {
@@ -43,7 +46,7 @@ var requestHandlers = function(req, res) {
 //static server
 
 var staticFileServer = function(request, response) {
-	console.log('======', 'this is static Faie server area');
+	console.log('/n======', 'this is static Faie server area');
 	var pathname = url.parse(request.url).pathname;
 	var realPath = path.join(__dirname, config.fPath.staticFilesDir, pathname);
 	console.log('++++++', realPath);

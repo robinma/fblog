@@ -4,7 +4,7 @@
 var path = require('path');
 var config = require("../config/config");
 var pageTpl=require('./page_readTpl');
-var juicer=require('../lib/juicer/build/juicer-min');
+var juicer=require('juicer');
 
 //controller 上下文
 var controllerContext = function(req, res) {
@@ -39,7 +39,8 @@ var handler500 = function(req, res, err) {
 var viewEngine={
 	render:function(req,res,viewName,context){
 		var filename= path.join(__dirname, config.fPath.tplFilesDir, viewName);
-		pageTpl.getTpl(filename,getTplCB);
+		console.log('tpl files road',filename);
+		pageTpl.getTpl(req,res,filename,getTplCB);
 		
 		//get template string call back function
 		function getTplCB(data){
