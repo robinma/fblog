@@ -46,10 +46,10 @@ var requestHandlers = function(req, res) {
 //static server
 
 var staticFileServer = function(request, response) {
-	console.log('/n======', 'this is static Faie server area');
+	console.log('this is static Faie server area');
 	var pathname = url.parse(request.url).pathname;
 	var realPath = path.join(__dirname, config.fPath.staticFilesDir, pathname);
-	console.log('++++++', realPath);
+	console.log('realPath:   ', realPath);
 	var ext = path.extname(realPath);
 	ext = ext ? ext.slice(1) : 'text/plain';
 

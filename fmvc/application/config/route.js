@@ -22,7 +22,6 @@ var setting={
 	
 }
 
-//遍历装箱
 for(var i in setting){
 	sroute.map(setting[i]);
 }

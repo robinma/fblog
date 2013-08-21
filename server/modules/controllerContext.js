@@ -3,8 +3,8 @@
  */
 var path = require('path');
 var config = require("../config/config");
-var pageTpl=require('./page_readTpl');
-var juicer=require('juicer');
+var cpage=require('./cpage');
+var juicer=require('../node_modules/juicer/build/juicer-min.js');
 
 //controller 上下文
 var controllerContext = function(req, res) {
@@ -18,9 +18,11 @@ var ccproto=controllerContext.prototype;
 
 ccproto['render']=function(viewpath,cjson){
 	viewEngine.render(this.req,this.res,viewpath,cjson);
-	
 };
 
+ccproto['switch_page']=function(page,path){
+	
+};
 
 var handler404 = function(req, res) {
 	res.writeHead(404, {
@@ -39,12 +41,14 @@ var handler500 = function(req, res, err) {
 var viewEngine={
 	render:function(req,res,viewName,context){
 		var filename= path.join(__dirname, config.fPath.tplFilesDir, viewName);
-		console.log('tpl files road',filename);
-		pageTpl.getTpl(req,res,filename,getTplCB);
+
+console.log('tpl files road',filename);
+		
+		cpage.getTpl(req,res,filename,getTplCB);
 		
 		//get template string call back function
-		function getTplCB(data){
-			var output=juicer(data,context);
+		function getTplCB(tpl){
+			var output=juicer(tpl,context);
 			res.writeHead(200,{'Content-text':'text/html'});
 			res.end(output);
 		}

@@ -9,15 +9,14 @@ var start = function(port) {
 	
 	port = port || 8080;
 	function onRequest(req, res) {
-		console.log('======', req.url, res.method);
+		console.log('onRequest : ', req.url, res.method);
 		req.post = queryString.parse(req.url);
 
 		requestHandler.init(req, res);
 	}
 
-
 	http.createServer(onRequest).listen(port);
-	console.log('======= Server has started');
+	console.log('Server start success');
 }
 
 exports.start = start;

@@ -1,5 +1,6 @@
 /**
  * @author robin ma
+ * route 配置解析
  */
 var fs = require('fs');
 var path = require('path');
@@ -47,12 +48,10 @@ exports.getActionInfo = function(url, method) {
 	pathName = parseUrl(url).pathname;
 
 	var m_routes = routes[method];
-		console.log('======rotes collection====',m_routes,'/n/n/n/n');
+		console.log('======rotes collection====',m_routes);
 	for (var i in m_routes) {
 		//正则匹配
 		r.args = m_routes[i].u.exec(pathName);
-		console.log('-----routes ', m_routes[i], pathName);
-		console.log('-----args', m_routes[i].u.exec(pathName));
 		if (r.args) {
 			r.controller = m_routes[i].c;
 			r.action = m_routes[i].a;

@@ -13,14 +13,17 @@ exports.getTpl = function(req,res,pathname, callback) {
 			res.end('Page Not Found');
 		} else {
 			
-			fs.readFile(pathname,{encoding:'utf8'}, function(err, data) {
+			fs.readFile(pathname,'utf8', function(err, data) {
 				if (err) {
 					res.writeHead(500, {
 						'Content-Type' : 'text/plain'
 					});
 					res.end(err);
 				}
-				if(typeof callback === 'function') callback(data);
+				if(typeof callback === 'function'){
+					
+					callback(data);
+				};
 			})
 		}
 	});

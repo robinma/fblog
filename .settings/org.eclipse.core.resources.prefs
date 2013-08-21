@@ -1,4 +1,12 @@
 eclipse.preferences.version=1
+encoding//fmvc/application/config/route.js=UTF-8
+encoding//fmvc/application/controllers/home.js=UTF-8
+encoding//fmvc/application/controllers/welcome.js=UTF-8
+encoding//fmvc/application/view/welcome.html=UTF-8
+encoding//server/modules/controllerContext.js=UTF-8
+encoding//server/modules/requestHandlers.js=UTF-8
+encoding//server/modules/response.js=UTF-8
+encoding//server/modules/route.js=UTF-8
 encoding//server/modules/server.js=UTF-8
+encoding/<project>=UTF-8
 encoding/index.js=UTF-8
-separateDerivedEncodings=true
