@@ -3,7 +3,12 @@
  */
 var fs = require('fs');
 
-exports.getTpl = function(req,res,pathname, callback) {
+var cpage=function(){
+	
+};
+
+var cproto=cpage.prototype;
+cproto['getTpl']=function(req,res,pathname, callback) {
 	fs.exists(pathname, function(exists) {
 		
 		if (!exists) {
@@ -27,4 +32,11 @@ exports.getTpl = function(req,res,pathname, callback) {
 			})
 		}
 	});
+};
+
+cproto['getView']=function(){
+	
 }
+
+
+module.exports=new cpage;

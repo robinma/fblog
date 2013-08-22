@@ -7,7 +7,7 @@ var cpage=require('cpage');
 function component(){
 	
 };
-component.prototype=new cpage;
+component.prototype=cpage;
 
 var comPtoto=component.prototype;
 
@@ -15,10 +15,7 @@ var comPtoto=component.prototype;
 comPtoto['init']=function(){
 	
 };
-//get component template
-comPtoto['getView']=function(){
-	
-};
+
 
 
 module.exports = component;

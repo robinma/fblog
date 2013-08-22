@@ -20,6 +20,8 @@ ccproto['render']=function(viewpath,cjson){
 	viewEngine.render(this.req,this.res,viewpath,cjson);
 };
 
+
+
 ccproto['switch_page']=function(page,path){
 	
 };
