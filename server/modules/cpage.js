@@ -37,7 +37,9 @@ cproto['getTplPath']=function(){};
 
 cproto['render']=function(){};
 
-
+cproto['setMete']=function(){
+	
+}
 
 
 
