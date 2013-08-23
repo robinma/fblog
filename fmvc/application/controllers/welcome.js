@@ -1,8 +1,14 @@
 /**
  * @author robin ma
  */
-exports.init=function(param){
-	
-	console.log('是我');
-	this.render(param.tpl,{});
+exports.init = function(param) {
+	var __=this;
+	var tpl = __.getTpl(param.tpl, function(data) {
+		reJoinTpl(data);
+	});
+
+	var reJoinTpl = function(data) {
+		__.render(data, {});
+	}
+
 }

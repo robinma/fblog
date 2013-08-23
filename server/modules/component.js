@@ -2,20 +2,20 @@
  * @author jerry
  */
 
-var cpage=require('cpage');
+var cpage=require('./cpage');
 
-function component(){
-	
+function component(req,res){
+	this.req = req;
+	this.res = res;
 };
-component.prototype=cpage;
+component.prototype=new cpage;
 
 var comPtoto=component.prototype;
 
 //component entity
-comPtoto['init']=function(){
+comPtoto['getTpl']=function(tplPath,callback){
 	
+	this.getTemplate(this.req,this.res,tplPath,callback);
 };
-
-
 
 module.exports = component;

@@ -27,8 +27,6 @@ var requestHandlers = function(req, res) {
 
 		if (controller[actionInfo.action]) {
 			var ct=new cct.controllerContext(req,res);
-			
-			console.log('actionInfo:',actionInfo.args);
 			controller[actionInfo.action].apply(ct,[actionInfo]);
 		} else {
 			res.writeHead(500, {

@@ -8,9 +8,9 @@ var cpage=function(){
 };
 
 var cproto=cpage.prototype;
-cproto['getTpl']=function(req,res,pathname, callback) {
+
+cproto['getTemplate']=function(req,res,pathname, callback) {
 	fs.exists(pathname, function(exists) {
-		
 		if (!exists) {
 			res.writeHead(404, {
 				'Content-Type' : 'text/plain'
@@ -26,17 +26,19 @@ cproto['getTpl']=function(req,res,pathname, callback) {
 					res.end(err);
 				}
 				if(typeof callback === 'function'){
-					
 					callback(data);
 				};
 			})
 		}
 	});
 };
+//get view template
+cproto['getTplPath']=function(){};
 
-cproto['getView']=function(){
-	
-}
+cproto['render']=function(){};
 
 
-module.exports=new cpage;
+
+
+
+module.exports=cpage;
