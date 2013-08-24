@@ -9,14 +9,14 @@ var setting={
 		url:/\/\/?$/i,
 		controller:'welcome',
 		action:'init',
-		tpl:'welcome.html',
+		tpl:'welcome',
 	},
 	//home
 	'blog':{
 		url:/\/blog\/?$/i,
 		controller:'home',
 		action:'init',
-		tpl:'blog/home/main.html',
+		tpl:'blog_home_main',
 	},
 	
 	

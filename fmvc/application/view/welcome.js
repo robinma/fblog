@@ -1,4 +1,7 @@
 /**
  * @author jerry
  */
-cxvbvc
+
+module.exports = function() {
+console.log('==================== view seting')
+}

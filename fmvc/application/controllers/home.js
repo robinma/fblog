@@ -8,6 +8,7 @@ exports.init=function(param){
 	//get component of top
 	__.getComponent('global_maintop',function(data){
 		collTpl.top=data;
+		
 		__.getComponent('global_bottom',function(data){
 			collTpl.bottom=data;
 			getMainTpl();
@@ -16,7 +17,7 @@ exports.init=function(param){
 	
 	
 	var getMainTpl=function(){
-		var tpl=__.getTpl(param.tpl,function(data){
+		__.getView(param.tpl,function(data){
 			reJoinTpl(data);
 		});
 	}

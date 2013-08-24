@@ -3,6 +3,7 @@
  */
 exports.init = function(param) {
 	var __=this;
+	
 	var tpl = __.getTpl(param.tpl, function(data) {
 		reJoinTpl(data);
 	});
