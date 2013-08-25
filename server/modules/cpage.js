@@ -11,7 +11,7 @@ var cpage = function(req, res) {
 var cproto = cpage.prototype;
 
 cproto['getTemplate'] = function(pathname, callback) {
-	var __=this;
+	var __ = this;
 	fs.exists(pathname, function(exists) {
 		if (!exists) {
 			__.res.writeHead(404, {
@@ -48,5 +48,4 @@ cproto['setCss'] = function() {
 cproto['setJs'] = function() {
 };
 
-
-module.exports = cpage; 
+module.exports = cpage;
