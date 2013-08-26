@@ -3,5 +3,26 @@
  */
 
 module.exports = function() {
-console.log('==================== view seting')
+	
+	
+	this.setMeta = function() {
+
+		return {
+
+		}
+	};
+
+	this.setCss = function() {
+		return {
+			fileList : [],
+
+		};
+	}
+
+	this.setJs = function() {
+		return {
+			title:'',
+			fileList : {}
+		}
+	}
 }

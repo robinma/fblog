@@ -48,4 +48,5 @@ cproto['setCss'] = function() {
 cproto['setJs'] = function() {
 };
 
+
 module.exports = cpage;

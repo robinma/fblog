@@ -20,7 +20,11 @@ module.exports = function() {
 
 	this.setJs = function() {
 		return {
-			fileList : []
+			title:'',
+			fileList : {
+				'keywords':'',
+				'description':''
+			}
 		}
 	}
 }
