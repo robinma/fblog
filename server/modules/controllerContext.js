@@ -22,8 +22,10 @@ var ccproto = controllerContext.prototype;
  * @TODU render page
  */
 ccproto['render'] = function(tpl, cjson) {
-	
-	viewEngine.render(this.req, this.res, tpl, cjson);
+	var head=this.getHeadInfo();
+	var tail=this.getTail();
+	var ntpl=head+tpl+tail;
+	viewEngine.render(this.req, this.res, ntpl, cjson);
 };
 /**
  * @TODO get template

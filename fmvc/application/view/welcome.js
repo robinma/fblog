@@ -8,13 +8,15 @@ module.exports = function() {
 	this.setMeta = function() {
 
 		return {
-
+			title:'',
+			Keywords:'',
+			'description':''
 		}
 	};
 
 	this.setCss = function() {
 		return {
-			fileList : [],
+			fileList : ['common/base.css','index.css'],
 
 		};
 	}

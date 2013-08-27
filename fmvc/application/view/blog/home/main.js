@@ -7,24 +7,22 @@ module.exports = function() {
 	this.setMeta = function() {
 
 		return {
-
+			title:'',
+			Keywords:'',
+			'description':''
 		}
 	};
 
 	this.setCss = function() {
 		return {
-			fileList : [],
+			fileList : ['common/base.css','common/common.css','blog/main.css']
 
 		};
 	}
 
 	this.setJs = function() {
 		return {
-			title:'',
-			fileList : {
-				'keywords':'',
-				'description':''
-			}
+			fileList : []
 		}
 	}
 }
