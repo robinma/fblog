@@ -4,8 +4,10 @@
 var path = require('path');
 var config = require("../config/config");
 var Cpage = require('./cpage');
-var juicer = require('../node_modules/juicer/build/juicer-min.js');
-var component = require('./component.js');
+var juicer = require('../node_modules/juicer/build/juicer-min');
+var component = require('./component');
+var mongodb=require('./mongodb_connect');
+
 var cpage = new Cpage;
 //controller 上下文
 var controllerContext = function(req, res) {
