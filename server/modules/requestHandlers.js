@@ -21,8 +21,8 @@ var requestHandlers = function(req, res) {
 	
 	if (actionInfo.action) {
 		console.log('+++++ action Entroal', actionInfo.action);
-		
-		var controller = require(config.fPath.controllers + actionInfo.controller);
+		var contrPath= actionInfo.controller.split(/[_-]/).join('/');
+		var controller = require(config.fPath.controllers + contrPath);
 		//./controler/blog
 
 		if (controller[actionInfo.action]) {

@@ -18,7 +18,13 @@ var setting={
 		action:'init',
 		tpl:'blog_home_main',
 	},
-	
+	//login admin
+	'login':{
+		url:/\/login\/?$/i,
+		controller:'admin_login',
+		action:'init',
+		tpl:'admin_login_login'
+	}
 	
 }
 
