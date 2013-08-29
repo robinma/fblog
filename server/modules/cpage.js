@@ -15,7 +15,7 @@ cproto['getTemplate'] = function(pathname, callback) {
 	fs.exists(pathname, function(exists) {
 		if (!exists) {
 			__.res.writeHead(404, {
-				'Content-Type' : 'text/plain'
+				'Content-Type' : 'text/plan; charset=utf-8'
 			});
 			__.res.end('Page Not Found');
 		} else {
@@ -23,7 +23,7 @@ cproto['getTemplate'] = function(pathname, callback) {
 			fs.readFile(pathname, 'utf8', function(err, data) {
 				if (err) {
 					__.res.writeHead(500, {
-						'Content-Type' : 'text/plain'
+						'Content-Type' : 'text/plain; charset=utf-8'
 					});
 					__.res.end(err);
 				}
@@ -59,7 +59,8 @@ cproto['getHeadInfo']=function(){
 	html.push('<!DOCTYPE html>\
 <html>\
 	<head>\
-		<meta charset="utf-8" />\
+		<meta charset=UTF-8 />\
+		<link rel="shortcut icon" href="favicon.ico">\
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />');
 		
 	html.push('<title>'+(mate['title']?mate['title']+'-'+title:title)+'</title>');

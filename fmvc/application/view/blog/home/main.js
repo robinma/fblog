@@ -7,7 +7,7 @@ module.exports = function() {
 	this.setMeta = function() {
 
 		return {
-			title:'',
+			title:'首页',
 			Keywords:'',
 			'description':''
 		}

@@ -10,5 +10,6 @@ exports.fPath={
 	controllers:'../../fmvc/application/controllers/',//控制台根目标路径
 	staticFilesDir:'../../fmvc/static',
 	tplFilesDir:'../../fmvc/application/view',
-	componentDir:'../../fmvc/application/component/'
+	componentDir:'../../fmvc/application/component/',
+	mondelsPath:'../../fmvc/application/models/'
 }

@@ -1,6 +1,6 @@
 /**
  * @author jerry
  */
-exports.init=function(param){
+module.exports=function(mongose,db){
 	
 }
