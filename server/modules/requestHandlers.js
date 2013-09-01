@@ -6,7 +6,7 @@ var url = require('url');
 var path = require('path');
 var fs = require('fs');
 var route = require('./route');
-var croute = require('../../fmvc/application/config/route');
+var map = require('../../fmvc/application/config/map');
 
 var config = require("../config/config");
 var mime = require('../config/mime').types;
