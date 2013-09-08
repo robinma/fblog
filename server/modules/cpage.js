@@ -93,7 +93,7 @@ cproto['getCss']=function(){
 	var html=[],css=this.setCss();
 	if(!css.fileList.length)return '';
 	css.fileList.forEach(function(val){
-		html.push('<link href="/css/'+val+'" rel="stylesheet" type="text/css" />');
+		html.push('<link href="/css/'+val+'.css" rel="stylesheet" type="text/css" />');
 	});
 	return html.join('');
 };
@@ -102,7 +102,7 @@ cproto['getJs']=function(){
 	var html=[],js=this.setJs();
 	if(!js.fileList.length)return '';
 	globalJs.forEach(function(val){
-		html.push('<script src="/js/'+val+'" type="text/javascript"></script>');
+		html.push('<script src="/js/'+val+'.js" type="text/javascript"></script>');
 	});
 	return html.join('');
 };

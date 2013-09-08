@@ -15,7 +15,7 @@ module.exports = function() {
 
 	this.setCss = function() {
 		return {
-			fileList : ['common/base.css','common/common.css','blog/main.css']
+			fileList : ['common/base','common/common','blog/main']
 
 		};
 	}
