@@ -55,12 +55,13 @@ ccproto['getView'] = function(viewPattrn, callback) {
 };
 
 ccproto['getDB']=function(dbfilename){
-	//var filePath=getViewPath(dbfilename,'db');
-	//var model=require(filePath);
+	var filePath=getViewPath(dbfilename,'db');
+	var model=require(filePath);
 	var mondb=new mongodb;
 	mondb.init();
 	console.log('-----mongodb open success');
-	//model.call(mondb);
+	model.call(mondb);
+	
 	return mondb;
 };
 

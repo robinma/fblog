@@ -18,7 +18,7 @@ var mongo=function(){
 var monProto=mongo.prototype;
 
 monProto['init']=function(){
-	
+	connect_mongo();
 	var db = mongoose.connection;
 	db.on('err', console.error.bind(console, 'connection error:'));
 	this.mongoose=mongoose;

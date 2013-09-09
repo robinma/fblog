@@ -4,10 +4,12 @@
 exports.init=function(param){
 	var __=this;
 	var collTpl={};
-	var mongo=__.getDB();
+	var mongo=__.getDB('ModelBlogArticle');
 	var db=mongo.db;
 	db.once('open',function(){
 		console.log('--------------- i is open');
+		
+		
 	})
 	
 	
