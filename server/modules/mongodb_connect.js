@@ -19,10 +19,21 @@ var monProto=mongo.prototype;
 
 monProto['init']=function(){
 	connect_mongo();
+	//mongoose.connect(conHref);
 	var db = mongoose.connection;
 	db.on('err', console.error.bind(console, 'connection error:'));
 	this.mongoose=mongoose;
 	this.db=db;
+};
+
+monProto['getOrCreateModel']=function(name,schema){
+	var mong=this.mongoose,mod;
+	try{
+		mod=mong.model(name,schema);
+	}catch(err){
+		mod=mong.model(name);
+	}
+	return mod;
 };
 
 var connect_mongo=function(){
@@ -30,6 +41,7 @@ var connect_mongo=function(){
 	return function(){
 		if(i)return;
 		i++;
+		console.log('connection time',i);
 		mongoose.connect(conHref);
 	}
 }();
