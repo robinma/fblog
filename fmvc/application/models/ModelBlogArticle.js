@@ -19,25 +19,21 @@ var Article = new Schema({
 	classid : { type:Number}
 });
 	//访问模型
-	var blog=__.getOrCreateModel('blog', Article);
+	var mblog=__.getOrCreateModel('blog_article', Article);
 	
-	blog.find({}, function(err, data) {
+	//实例
+// var dit={userid:1,title:'testname',content:'this is content'};
+getDbCont();
+
+function getDbCont(){
+	mblog.find({}, function(err, data) {
 		if (err) {
 			console.log('render err');
 		} else {
-			console.log(data);
+			console.log('\033[31m show data:\033[0m',data);
 		}
-
-		__.db.close(function() {
-			console.log('========this time mongoose is close===========');
-		});
 	})
-
-//实例
-//var dit={userid:1,title:'testname',content:'this is content'};
-//var blogtest=new blog();
-
-//console.log('=====',blogtest);
+}
 
 return {a:function(){}}
 

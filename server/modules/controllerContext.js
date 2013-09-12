@@ -14,7 +14,8 @@ var controllerContext = function(req, res) {
 	Cpage.call(this, req, res);
 	this.handler404 = handler404;
 	this.handler500 = handler500;
-	
+	this.setsession();
+	//console.log('\033[41m req.headers\033[0m',req.headers);
 }
 
 controllerContext.prototype = cpage;
@@ -59,7 +60,7 @@ ccproto['getDB']=function(dbfilename){
 	var model=require(filePath);
 	var mondb=new mongodb;
 	mondb.init();
-	console.log('-----mongodb open success');
+	console.log('mongodb open success');
 	
 	return model.call(mondb);
 };

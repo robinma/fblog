@@ -16,7 +16,7 @@ var start = function(port) {
 	}
 
 	http.createServer(onRequest).listen(port);
-	console.log('Server start success');
+	console.log('\033[42m service start success \033[0m');
 }
 
 exports.start = start;

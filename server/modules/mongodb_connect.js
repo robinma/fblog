@@ -41,8 +41,8 @@ var connect_mongo=function(){
 	return function(){
 		if(i)return;
 		i++;
-		console.log('connection time',i);
 		mongoose.connect(conHref);
+		console.log('\033[42m Connection mongoDB success \033[0m');
 	}
 }();
 module.exports=mongo;

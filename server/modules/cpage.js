@@ -2,7 +2,7 @@
  * @author robin ma
  */
 var fs = require('fs');
-
+var sessions=require('./session');
 var cpage = function(req, res) {
 	this.req = req;
 	this.res = res;
@@ -34,6 +34,25 @@ cproto['getTemplate'] = function(pathname, callback) {
 		}
 	});
 };
+
+cproto['setsession']=function(callback){
+	var session;
+	session=sessions.lookupOrCreate(this.req,{
+		lifetime:1800
+	})
+	if(!session.data.history)session.data.history=[];
+	session.data.history.push(this.req.url);
+	
+	if(typeof session.data.user=='undefined' || session.data.user=='')
+	session.data.user='Guest';
+	
+	this.res.setHeader('Set-Cookie',session.getSetCookieHeaderValue());
+	
+	this.req.session=session;
+	if(typeof callback === 'function') callback(this.req,this.res);
+	
+};
+
 //get view template
 cproto['getTplPath'] = function() {
 };
