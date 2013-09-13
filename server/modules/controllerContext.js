@@ -15,7 +15,7 @@ var controllerContext = function(req, res) {
 	this.handler404 = handler404;
 	this.handler500 = handler500;
 	this.setsession();
-	//console.log('\033[41m req.headers\033[0m',req.headers);
+	console.log('\033[41m req.headers\033[0m',req.headers,frog);
 }
 
 controllerContext.prototype = cpage;

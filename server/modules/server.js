@@ -4,7 +4,8 @@
 var http = require('http'), 
 queryString = require('querystring'), 
 requestHandler = require('./requestHandlers');
-
+var frog=require('./frog_log');
+global.frog=frog;
 var start = function(port) {
 	
 	port = port || 8080;

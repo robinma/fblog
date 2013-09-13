@@ -42,7 +42,7 @@ var connect_mongo=function(){
 		if(i)return;
 		i++;
 		mongoose.connect(conHref);
-		console.log('\033[42m Connection mongoDB success \033[0m');
+		frog.log.bok('Connection mongoDB success');
 	}
 }();
 module.exports=mongo;

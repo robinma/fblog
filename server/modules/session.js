@@ -3,9 +3,8 @@
  * session module for node
  */
 var sessions = {}, timeout;
-
-exports.lookupOrCreate=lookupOrCreate;
-exports.sesstionRoot=sessions;
+exports.lookupOrCreate = lookupOrCreate;
+exports.sesstionRoot = sessions;
 
 function ownProp(o, p) {
 	return Object.prototype.hasOwnProperty.call(o, p);
@@ -21,13 +20,13 @@ function lookupOrCreate(req, opts) {
 		session = sessions[id];
 	} else {
 		session = new Session(id, opts);
-		session[id] = session
+		sessions[id] = session
 	}
 
 	session.expiration = (+new Date) + session.lifetime * 1000;
 	if (!timeout)
 		timeout = setTimeout(clearup, 60000);
-		
+
 	return session;
 }
 
@@ -54,7 +53,6 @@ function idFromRequest(req, opts) {
 	if (req.headers.cookie && ( m = /SID=([^ ,;]*)/.exec(req.headers.cookie)) && ownProp(sessions, m[1])) {
 		return m[1]
 	}
-
 	if (opts.sessionID)
 		return opts.sessionID
 	return randomString(64)
@@ -109,7 +107,13 @@ sesProto.serialize = function() {
 //Thu, 12 Sep 2013 07:48:40 GMT    Thu, 12-Sep-2013 07:48:40 GMT
 function dateCookieString(ms) {
 	var d, wdy, mon
-	d = new Date(ms);
-	return d.toUTCString();
+	d = new Date(ms)
+	wdy = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+	mon = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+	return wdy[d.getUTCDay()] + ', ' + pad(d.getUTCDate()) + '-' + mon[d.getUTCMonth()] + '-' + d.getUTCFullYear() + ' ' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ':' + pad(d.getUTCSeconds()) + ' GMT'
+}
+
+function pad(n) {
+	return n > 9 ? '' + n : '0' + n
 }
 

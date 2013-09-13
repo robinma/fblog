@@ -30,7 +30,7 @@ function getDbCont(){
 		if (err) {
 			console.log('render err');
 		} else {
-			console.log('\033[31m show data:\033[0m',data);
+			frog.log.ok('show data:',data);
 		}
 	})
 }
