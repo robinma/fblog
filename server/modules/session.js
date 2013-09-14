@@ -96,7 +96,7 @@ sesProto.getSetCookieHeaderValue = function() {
 		parts.push('domain=' + this.domain);
 	if (this.persistent)
 		parts.push('expires=' + dateCookieString(this.expiration));
-	return parts.join(',');
+	return parts.join(';');
 }
 sesProto.destroy = function() {
 	delete sessions[this.is]

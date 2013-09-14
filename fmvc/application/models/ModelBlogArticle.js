@@ -22,8 +22,9 @@ var Article = new Schema({
 	var mblog=__.getOrCreateModel('blog_article', Article);
 	
 	//实例
-// var dit={userid:1,title:'testname',content:'this is content'};
-getDbCont();
+var dit={userid:1,title:'testname',content:'this is content'};
+	
+	getDbCont();
 
 function getDbCont(){
 	mblog.find({}, function(err, data) {

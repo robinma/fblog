@@ -45,7 +45,7 @@ cproto['setsession']=function(callback){
 	
 	if(typeof session.data.user=='undefined' || session.data.user=='')
 	session.data.user='Guest';
-	
+	frog.log.bok(session.getSetCookieHeaderValue());
 	this.res.setHeader('Set-Cookie',session.getSetCookieHeaderValue());
 	
 	this.req.session=session;
