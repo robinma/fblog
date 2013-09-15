@@ -60,7 +60,6 @@ ccproto['getDB']=function(dbfilename){
 	var model=require(filePath);
 	var mondb=new mongodb;
 	mondb.init();
-	console.log('mongodb open success');
 	
 	return model.call(mondb);
 };

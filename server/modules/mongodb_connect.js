@@ -36,6 +36,11 @@ monProto['getOrCreateModel']=function(name,schema){
 	return mod;
 };
 
+monProto['getId']=function(){
+	var ctime=+new Date,mr=(Math.random()*1000000)|0;
+	return (ctime+mr).toString(16);
+	
+}
 var connect_mongo=function(){
 	var i=0;
 	return function(){
