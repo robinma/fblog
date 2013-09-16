@@ -17,7 +17,7 @@ var start = function(port) {
 	}
 
 	http.createServer(onRequest).listen(port);
-	console.log('\033[42m service start success \033[0m');
+	frog.log.ok('service start success');
 }
 
 exports.start = start;
