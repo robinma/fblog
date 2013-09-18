@@ -37,7 +37,8 @@ exports.map = function(dict) {
 	}
 }
 
-exports.getActionInfo = function(url, method) {
+exports.getActionInfo = function(req, method) {
+	var url=req.url;
 	var r = {
 		controller : null,
 		action : null,
@@ -46,19 +47,24 @@ exports.getActionInfo = function(url, method) {
 
 	//url
 	pathName = parseUrl(url).pathname;
-
-	var m_routes = routes[method];
-	for (var i in m_routes) {
-		//正则匹配
-		r.args = m_routes[i].u.exec(pathName);
-		if (r.args) {
-			r.controller = m_routes[i].c;
-			r.action = m_routes[i].a;
-			r.args.shift();
-			r.tpl = m_routes[i].t;
-			break;
-		}
-	}
+	
+	
+	
+	// var m_routes = routes[method];
+	// for (var i in m_routes) {
+		// //正则匹配
+		// r.args = m_routes[i].u.exec(pathName);
+		// if (r.args) {
+			// r.controller = m_routes[i].c;
+			// r.action = m_routes[i].a;
+			// r.args.shift();
+			// r.tpl = m_routes[i].t;
+			// break;
+		// }
+	// }
 	//data format {controller:'blog',action:'get',args:['1']}
+	
+	
+	
 	return r;
 }

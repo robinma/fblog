@@ -17,13 +17,12 @@ var cct=require('./controllerContext');
 var requestHandlers = function(req, res) {
 
 	//get rotu setting infomations
-	var actionInfo = route.getActionInfo(req.url, req.method);
+	var actionInfo = route.getActionInfo(req, req.method);
 	
 	if (actionInfo.action) {
-		console.log('+++++ action Entroal', actionInfo.action);
+		frog.log.bok('action:',actionInfo.action);
 		var contrPath= actionInfo.controller.split(/[_-]/).join('/');
 		var controller = require(config.fPath.controllers + contrPath);
-		//./controler/blog
 
 		if (controller[actionInfo.action]) {
 			var ct=new cct.controllerContext(req,res);
@@ -32,7 +31,7 @@ var requestHandlers = function(req, res) {
 			res.writeHead(500, {
 				'Content-Type' : 'text/plain'
 			});
-			res.write('the server is not fine' + actionInfo.action);
+			res.write('the server is not fine ' + actionInfo.action);
 			res.end(err);
 		}
 	} else {
