@@ -38,7 +38,6 @@ exports.map = function(dict) {
 }
 
 exports.getActionInfo = function(req, method) {
-	var url=req.url;
 	var r = {
 		controller : null,
 		action : null,
@@ -46,8 +45,9 @@ exports.getActionInfo = function(req, method) {
 	}, method = method ? method.toLowerCase() : 'get',
 
 	//url
-	pathName = parseUrl(url).pathname;
-	
+	parse = parseUrl(req.url),
+	pathname=parse.pathname,
+	query=parse.query;
 	
 	
 	// var m_routes = routes[method];
