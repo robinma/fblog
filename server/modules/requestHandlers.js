@@ -11,7 +11,6 @@ var map = require('../../fmvc/application/config/map');
 var config = require("../config/config");
 var mime = require('../config/mime').types;
 
-var resHandler = require('./response');
 var cct=require('./controllerContext');
 
 var requestHandlers = function(req, res) {
