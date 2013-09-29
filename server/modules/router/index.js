@@ -1,6 +1,8 @@
 /**
  * @author jerry
  */
+var method=require('methods');
+
 
 function Router(options){
 	options=iptions||{};
@@ -24,3 +26,4 @@ function Router(options){
 Router.prototype._dispatch=function(req,res,txt){
 	
 }
+
