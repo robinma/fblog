@@ -5,7 +5,7 @@
 var url = require('url');
 var path = require('path');
 var fs = require('fs');
-var route = require('./route');
+var route = require('./router/index');
 var map = require('../../fmvc/application/config/map');
 
 var config = require("../config/config");
@@ -13,8 +13,24 @@ var mime = require('../config/mime').types;
 
 var cct=require('./controllerContext');
 
-var requestHandlers = function(req, res) {
+//new a route object
+var Routes=new route({});
 
+require('../../fmvc/application/config/route')(Routes);
+
+console.log(Routes);
+
+var requestHandlers = function(req, res) {
+	
+	
+	frog.log.bok('测试一下');
+	
+	res.writeHead(500, {
+				'Content-Type' : 'text/plain'
+			});
+			res.write('test it');
+			res.end();
+return false;
 	//get rotu setting infomations
 	var actionInfo = route.getActionInfo(req, req.method);
 	
