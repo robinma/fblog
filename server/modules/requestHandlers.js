@@ -14,23 +14,24 @@ var mime = require('../config/mime').types;
 var cct=require('./controllerContext');
 
 //new a route object
-var Routes=new route({});
+var Router=new route({});
 
-require('../../fmvc/application/config/route')(Routes);
+require('../../fmvc/application/config/route')(Router);
 
-console.log(Routes);
+console.log(Router);
 
 var requestHandlers = function(req, res) {
 	
 	
 	frog.log.bok('测试一下');
-	
-	res.writeHead(500, {
-				'Content-Type' : 'text/plain'
-			});
-			res.write('test it');
-			res.end();
-return false;
+// 	
+	// res.writeHead(500, {
+				// 'Content-Type' : 'text/plain'
+			// });
+			// res.write('test it');
+			// res.end();
+// return false;
+	Router._dispatch(req,res);
 	//get rotu setting infomations
 	var actionInfo = route.getActionInfo(req, req.method);
 	
