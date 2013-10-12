@@ -24,13 +24,13 @@ var requestHandlers = function(req, res) {
 	
 	
 	frog.log.bok('测试一下');
-// 	
-	// res.writeHead(500, {
-				// 'Content-Type' : 'text/plain'
-			// });
-			// res.write('test it');
-			// res.end();
-// return false;
+	
+	res.writeHead(500, {
+				'Content-Type' : 'text/plain'
+			});
+			res.write('test it');
+			res.end();
+return false;
 	Router._dispatch(req,res);
 	//get rotu setting infomations
 	var actionInfo = route.getActionInfo(req, req.method);
