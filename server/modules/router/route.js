@@ -23,7 +23,7 @@ function Route(method, path, callbacks, options) {
 	this.path = path;
 	this.method = method;
 	this.callbacks = callbacks;
-	this.regExp = utils.pathRegexp(path, this.key = [], options.sensitive, options.strict);
+	this.regExp = utils.pathRegexp(path, this.keys = [], options.sensitive, options.strict);
 }
 
 /**
@@ -36,7 +36,7 @@ function Route(method, path, callbacks, options) {
  */
 
 Route.prototype.match = function(path) {
-	var keys = this.keys, params = this.params = [], m = this.regexp.exec(path);
+	var keys = this.keys, params = this.params = [], m = this.regExp.exec(path);
 
 	if (!m)
 		return false;

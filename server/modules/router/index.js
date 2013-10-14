@@ -14,8 +14,8 @@ function Router(options) {
 	//Register a param callback `fn` for the given `name`.
 	this.caseSensitive = options.caseSensitive;
 	this.strict = options.strict;
-	this.middleware = function router(req, res) {
-		__._dispatch(req, res);
+	this.middleware = function router(req, res,next) {
+		__._dispatch(req, res,next);
 	}
 }
 
@@ -83,8 +83,13 @@ Router.prototype._dispatch = function(req, res, next) {
 			return self._options(req, res);
 
 		// no route
-		if (!route)
-			return next(err);
+		if (!route){
+			console.log(self.map);
+			req.route=false;
+			console.log('no route')
+			return false;
+		};
+			//return next(err);
 
 		// we have a route
 		// start at param 0
@@ -162,7 +167,7 @@ Router.prototype._dispatch = function(req, res, next) {
  */
 
 Router.prototype._options = function(req, res) {
-	var path = parse(req).pathname, body = this._optionsFor(path).join(',');
+	var path = utils.parseUrl(req).pathname, body = this._optionsFor(path).join(',');
 	res.set('Allow', body).send(body);
 };
 
@@ -201,7 +206,7 @@ Router.prototype._optionsFor = function(path) {
  */
 
 Router.prototype.matchRequest = function(req, i, head) {
-	var method = req.method.toLowerCase(), url = parse(req), path = url.pathname, routes = this.map, i = i || 0, route;
+	var method = req.method.toLowerCase(), url = utils.parseUrl(req), path = url.pathname, routes = this.map, i = i || 0, route;
 
 	// HEAD support
 	if (!head && 'head' == method) {

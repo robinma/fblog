@@ -1,6 +1,7 @@
 /**
  * modules despendencies
  */
+var parse=require('url').parse;
 
 /**
  * flatten the given 'arr'
@@ -59,3 +60,20 @@ exports.pathRegexp = function(path, keys, sensitive, strict) {
     .replace(/\*/g, '(.*)');
   return new RegExp('^' + path + '$', sensitive ? '' : 'i');
 }
+
+/**
+ * Parse the `req` url with memoization.
+ *
+ * @param {ServerRequest} req
+ * @return {Object}
+ * @api private
+ */
+
+exports.parseUrl = function(req){
+  var parsed = req._parsedUrl;
+  if (parsed && parsed.href == req.url) {
+    return parsed;
+  } else {
+    return req._parsedUrl = parse(req.url);
+  }
+};
