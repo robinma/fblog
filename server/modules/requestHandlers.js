@@ -24,32 +24,32 @@ var requestHandlers = function(req, res) {
 	Router._dispatch(req,res);
 	frog.log.bok('测试一下',req.route);
 	
-	res.writeHead(500, {
-				'Content-Type' : 'text/plain'
-			});
-			res.write('test it');
-			res.end();
-return false;
+	// if(req.route){
+// 		
+	// }else{
+		// // if route not exec,than it is static Files;
+		// staticFileServer(req, res);
+	// }
 	
-	if (actionInfo.action) {
-		frog.log.bok('action:',actionInfo.action);
-		var contrPath= actionInfo.controller.split(/[_-]/).join('/');
-		var controller = require(config.fPath.controllers + contrPath);
-
-		if (controller[actionInfo.action]) {
-			var ct=new cct.controllerContext(req,res);
-			controller[actionInfo.action].apply(ct,[actionInfo]);
-		} else {
-			res.writeHead(500, {
-				'Content-Type' : 'text/plain'
-			});
-			res.write('the server is not fine ' + actionInfo.action);
-			res.end(err);
-		}
-	} else {
-		// if route not exec,than it is static Files;
-		staticFileServer(req, res);
-	}
+	// if (actionInfo.action) {
+		// frog.log.bok('action:',actionInfo.action);
+		// var contrPath= actionInfo.controller.split(/[_-]/).join('/');
+		// var controller = require(config.fPath.controllers + contrPath);
+// 
+		// if (controller[actionInfo.action]) {
+			// var ct=new cct.controllerContext(req,res);
+			// controller[actionInfo.action].apply(ct,[actionInfo]);
+		// } else {
+			// res.writeHead(500, {
+				// 'Content-Type' : 'text/plain'
+			// });
+			// res.write('the server is not fine ' + actionInfo.action);
+			// res.end(err);
+		// }
+	// } else {
+		// // if route not exec,than it is static Files;
+		// staticFileServer(req, res);
+	// }
 };
 
 //static server
