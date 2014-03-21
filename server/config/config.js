@@ -13,3 +13,10 @@ exports.fPath={
 	componentDir:'../../fmvc/application/component/',
 	mondelsPath:'../../fmvc/application/models/'
 }
+
+exports.serverConfig={
+	port:4000,
+	ip:'0.0.0.0',
+	host:''
+	
+};
