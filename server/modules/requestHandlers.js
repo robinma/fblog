@@ -18,12 +18,22 @@ var Router=new route({});
 
 require('../../fmvc/application/config/route')(Router);
 
-console.log(Router);
-
 var requestHandlers = function(req, res) {
-	Router._dispatch(req,res);
-	frog.log.bok('测试一下',req.route);
+
+	Router.middleware(req,res,function(){
+		console.log(arguments,'-=-=-=-=-')
+	});
+
+
+	frog.log.bok('测试一下',Router);
+
 	
+	res.writeHead(200, {
+		'Content-Type' : 'text/html'
+	});
+	res.write('binary');
+	res.end();
+
 	// if(req.route){
 // 		
 	// }else{

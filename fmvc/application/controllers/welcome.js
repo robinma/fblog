@@ -8,6 +8,8 @@ exports.init = function(param) {
 		reJoinTpl(data);
 	});
 
+	console.log('-----this is welcome page controllers ')
+
 	var reJoinTpl = function(data) {
 		__.render(data, {});
 	}

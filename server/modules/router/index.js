@@ -84,12 +84,12 @@ Router.prototype._dispatch = function(req, res, next) {
 
 		// no route
 		if (!route){
-			console.log(self.map);
+			console.log('no route:',self.map);
 			req.route=false;
 			console.log('no route')
 			return false;
 		};
-			//return next(err);
+			return next(err);
 
 		// we have a route
 		// start at param 0
